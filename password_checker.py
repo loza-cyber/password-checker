@@ -1,4 +1,7 @@
+
 import getpass
+
+
 def check_password(password):
     score = 0
 
@@ -40,7 +43,22 @@ def check_password(password):
     return score
 
 
+def get_strength(score):
+    if score <= 2:
+        return "Weak"
+    elif score <= 4:
+        return "Medium"
+    else:
+        return "Strong"
+
+
+def show_strength_meter(score):
+    meter = "█" * score
+    print("Strength meter:", meter, f"{score}/5")
+
+
 # Main program
+
 print("🔐 Password Security Checker")
 print("----------------------------")
 
@@ -59,9 +77,13 @@ score = check_password(password)
 print("----------------------------")
 print("Score:", score, "/ 5")
 
-if score <= 2:
-    print("🔴 Password strength: Weak")
-elif score <= 4:
-    print("🟡 Password strength: Medium")
+strength = get_strength(score)
+
+show_strength_meter(score)
+
+if strength == "Weak":
+    print("🔴 Password strength:", strength)
+elif strength == "Medium":
+    print("🟡 Password strength:", strength)
 else:
-    print("🟢 Password strength: Strong")
+    print("🟢 Password strength:", strength)
