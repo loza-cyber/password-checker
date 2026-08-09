@@ -48,6 +48,8 @@ while True:
 
     if password == "":
         print("❌ Password cannot be empty. Please try again.")
+    elif len(password) < 8:
+        print("❌ Password must be at least 8 characters long.")
     else:
         break
 
