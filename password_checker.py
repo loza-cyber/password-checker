@@ -1,3 +1,4 @@
+import getpass
 def check_password(password):
     score = 0
 
@@ -44,7 +45,7 @@ print("🔐 Password Security Checker")
 print("----------------------------")
 
 while True:
-    password = input("Enter your password: ")
+    password = getpass.getpass("Enter your password: ")
 
     if password == "":
         print("❌ Password cannot be empty. Please try again.")
