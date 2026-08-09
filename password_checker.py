@@ -57,6 +57,18 @@ def show_strength_meter(score):
     print("Strength meter:", meter, f"{score}/5")
 
 
+def is_common_password(password):
+    common_passwords = [
+        "password",
+        "password123",
+        "12345678",
+        "qwerty123",
+        "admin123"
+    ]
+
+    return password.lower() in common_passwords
+
+
 # Main program
 
 print("🔐 Password Security Checker")
@@ -72,6 +84,14 @@ while True:
     else:
         break
 
+
+# Check if password is common
+if is_common_password(password):
+    print("⚠️ Warning: This is a common password.")
+    print("⚠️ Consider choosing a more unique password.")
+
+
+# Check password
 score = check_password(password)
 
 print("----------------------------")
@@ -87,3 +107,4 @@ elif strength == "Medium":
     print("🟡 Password strength:", strength)
 else:
     print("🟢 Password strength:", strength)
+
